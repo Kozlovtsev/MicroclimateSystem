@@ -1,0 +1,74 @@
+﻿<Window x:Class="MicroclimateSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Система микроклимата для свиноводства" Height="600" Width="800"
+        Background="#FFE0F7FA">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Длина помещения (м):" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtLength" Style="{StaticResource TextBoxStyle}"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Ширина помещения (м):" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtWidth" Style="{StaticResource TextBoxStyle}"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Высота помещения (м):" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtHeight" Style="{StaticResource TextBoxStyle}"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Количество свиней:" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtNumberOfPigs" Style="{StaticResource TextBoxStyle}"/>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Тип свиней:" Style="{StaticResource LabelStyle}"/>
+        <ComboBox Grid.Row="4" Grid.Column="1" x:Name="cmbPigType" Style="{StaticResource ComboBoxStyle}">
+            <ComboBoxItem Content="Поросята"/>
+            <ComboBoxItem Content="Подсвинки"/>
+            <ComboBoxItem Content="Взрослые"/>
+        </ComboBox>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Сезон:" Style="{StaticResource LabelStyle}"/>
+        <ComboBox Grid.Row="5" Grid.Column="1" x:Name="cmbSeason" Style="{StaticResource ComboBoxStyle}">
+            <ComboBoxItem Content="Зима"/>
+            <ComboBoxItem Content="Лето"/>
+        </ComboBox>
+
+        <Button Grid.Row="6" Grid.Column="1" Content="Рассчитать" Click="Calculate_Click" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Left" Margin="162,0,0,0"/>
+        
+        <Label Grid.Row="7" Grid.Column="0" Content="Оптимальная температура (°C):" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="7" Grid.Column="1" x:Name="txtOptimalTemperature" Style="{StaticResource TextBoxStyle}" IsReadOnly="True"/>
+
+        <Label Grid.Row="8" Grid.Column="0" Content="Оптимальная влажность (%):" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="8" Grid.Column="1" x:Name="txtOptimalHumidity" Style="{StaticResource TextBoxStyle}" IsReadOnly="True"/>
+
+        <Label Grid.Row="9" Grid.Column="0" Content="Требуемая вентиляция (м³/ч):" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="9" Grid.Column="1" x:Name="txtRequiredVentilation" Style="{StaticResource TextBoxStyle}" IsReadOnly="True"/>
+
+        <Label Grid.Row="10" Grid.Column="0" Content="Уровень CO₂ (ppm):" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="10" Grid.Column="1" x:Name="txtCO2Level" Style="{StaticResource TextBoxStyle}" IsReadOnly="True"/>
+
+        <Label Grid.Row="11" Grid.Column="0" Content="Уровень аммиака (ppm):" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="11" Grid.Column="1" x:Name="txtAmmoniaLevel" Style="{StaticResource TextBoxStyle}" IsReadOnly="True"/>
+
+        <Button Grid.Row="12" Grid.Column="1" Content="Экспорт данных" Click="ExportData_Click" Style="{StaticResource ButtonStyle}" Margin="27,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Button Grid.Row="12" Grid.Column="1" Content="История расчётов" Click="OpenHistory_Click" Style="{StaticResource ButtonStyle}" Margin="270,42,0,0" Width="150" RenderTransformOrigin="1.661,1.002" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
